@@ -1,12 +1,3 @@
-/**
- * Author: Lev Angel
- * Website: https://rage-script.ru
- *
- * Copyright (C) 2021 Lev Angel - All Rights Reserved
- * You may use, distribute and modify this code under the
- * terms of the MIT license.
- */
-
 // Импортируем необходимые функции
 const CHANGE_EDITOR_MODE_BUTTON = 0x71; // F2
 const MODE_FLY = 0;
@@ -303,7 +294,7 @@ mp.events.add("playerStartMapEditor", (_mapsList) => {
     isEditorStarted = true;
     selectedObject = false;
     currentMode = MODE_FLY;
-    mp.game.graphics.notify('~g~Rage Builder ~w~started');
+    mp.game.graphics.notify('~g~Map Editor ~w~started');
 });
 
 mp.events.add('browserDomReady', (_browser) => {

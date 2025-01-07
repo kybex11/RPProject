@@ -1,3 +1,5 @@
+let isAuth = false;
+
 try {
     require('./events');
     require('rage-builder');

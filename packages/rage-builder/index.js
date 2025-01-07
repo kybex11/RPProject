@@ -1,12 +1,3 @@
-/**
- * Author: Lev Angel
- * Website: https://rage-script.ru
- *
- * Copyright (C) 2021 Lev Angel - All Rights Reserved
- * You may use, distribute and modify this code under the
- * terms of the MIT license.
- */
-
 const fs = require('fs');
 
 let maps = [];

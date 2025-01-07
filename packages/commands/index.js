@@ -9,3 +9,8 @@ mp.events.addCommand('armor', (player) => {
 mp.events.addCommand('kill', (player) => {
     player.health = 0;
 });
+
+mp.events.addCommand("weapon", (player, fullText, weapon, ammo) => {
+  let weaponHash = mp.joaat(weapon);
+  player.giveWeapon(weaponHash, parseInt(ammo) || 10000);
+});
