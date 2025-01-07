@@ -278,9 +278,9 @@ mp.events.add('render', () => {
 
 function renderModeSelect() {
     if(!selectedObject) return;
-    
+
     highlightEntity(selectedObject);
-    
+
     if (currentMode == MODE_SELECT) {
         elementMoveFrameProcess(selectedObject);
     }
