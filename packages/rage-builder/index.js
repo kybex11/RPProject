@@ -24,7 +24,7 @@ function addMapsListItem(mapName){
     }
 }
 
-mp.events.addCommand("builder639874298052", (player ) => {
+mp.events.add("server:command:builder", (player ) => {
     player.call('playerStartMapEditor', [ maps ]);
 });
 

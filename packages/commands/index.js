@@ -1,16 +1,15 @@
-mp.events.addCommand('hp', (player) => {
+mp.events.add('command:hp', (player) => {
     player.health = 100;
 });
 
-mp.events.addCommand('armor', (player) => {
+mp.events.add('command:armor', (player) => {
     player.armour = 100;
 });
 
-mp.events.addCommand('kill', (player) => {
+mp.events.add('command:kill', (player) => {
     player.health = 0;
 });
 
-mp.events.addCommand("weapon", (player, fullText, weapon, ammo) => {
-  let weaponHash = mp.joaat(weapon);
-  player.giveWeapon(weaponHash, parseInt(ammo) || 10000);
+mp.events.add("command:give:weapon", (player, fullText, weapon, ammo) => {
+  player.giveWeapon(mp.joaat(weapon), parseInt(ammo) || 10000);
 });

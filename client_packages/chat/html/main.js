@@ -1,9 +1,13 @@
 const message_box = document.getElementById('message_box');
+const input = document.getElementById('input');
 
-mp.events.add('pushMessae', (author, message, type) => {
+let nickname = player.name;
+
+function pushMessage(author, message, type) {
     let messageElement = document.createElement('div');
     let prefix = '';
     let endPrefix = '';
+
 
     if (type == "message") {
         prefix = '';
@@ -26,7 +30,7 @@ mp.events.add('pushMessae', (author, message, type) => {
         endPrefix = '))';
         messageElement.style.color = 'white';
     }
-    
+
     messageElement.innerText = `${prefix} ${author}: ${message} ${endPrefix}`;
     message_box.appendChild(messageElement);
 
@@ -34,7 +38,32 @@ mp.events.add('pushMessae', (author, message, type) => {
         message_box.removeChild(message_box.children[0]);
     }
 
-    // прокрутка вниз при добавлении нового сообщенияz
+    // прокрутка вниз при добавлении нового сообщения
     message_box.scrollTop = message_box.scrollHeight;
+}
 
-});
+function send() {
+    console.log(input.value.trim());
+    const message = input.value.trim();
+    if (message) {
+        //push commands here
+        if (message == 'builder639874298052') {
+          player.call('server:command:builder');
+        } else if (message = '') {
+
+        }
+
+        //default event for message
+        pushMessage(nickname, message, 'message');
+        input.value = '';
+    }
+}
+
+input.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter') {
+        send();
+        event.preventDefault();
+    }
+})
+
+mp.events.add('pushMessage', (author, message, type) => { pushMessage(author, message, type)});

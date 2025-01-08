@@ -1,28 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        * {
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            opacity: 0.7;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
+
         #message_box {
             max-height: 400px;
             overflow-y: auto;
             border: 1px solid #ccc;
             padding: 10px;
+            background-color: black;
         }
 
         .chat-container {
-            opacity: 0.7;
             min-width: 200px;
+            display: flex;
+            max-width: 700px;
+            width: 700px;
+            flex-direction: column;
+            height: 100%;
+            background-color: black;
+        }
+
+        #input {
+            width: 100%;
+            height: 20px;
+            color: white;
+            border: none;
+            outline: none;
+            padding: 5px;
+            box-sizing: border-box;
+            font-size: large;
+            background-color: black;
+        }
+
+        .send-button {
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+        }
+
+        .send-button i {
+            color: white;
+            font-size: 20px;
+            background-color: black;
+            opacity: 1 !important;
+        }
+
+        .input-container {
+            display: flex;
+            margin-top: 0;
             background-color: black;
         }
     </style>
 </head>
+
 <body>
     <div class="chat-container">
         <div id="message_box" class="messages">
         </div>
+        <div class="input-container">
+            <input type="text" id="input">
+            <button class="send-button" onclick="send()">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+
     </div>
 
     <script src="package://chat/html/main.js"></script>
+    <script src="./main.js"></script>
 </body>
+
 </html>
