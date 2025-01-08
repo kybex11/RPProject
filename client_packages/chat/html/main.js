@@ -22,13 +22,21 @@ function pushMessage(author, message, type) {
         endPrefix = '';
         messageElement.style.color = 'orange';
     } else if (type == 'announcement') {
-        prefix = '';
+        prefix = '[Announcement]';
         endPrefix = '';
         messageElement.style.color = 'yellow';
     } else if (type == 'nonrp') {
         prefix = '((';
         endPrefix = '))';
         messageElement.style.color = 'white';
+    } else if (type == 'news') {
+        prefix = '[NEWS]';
+        endPrefix = '';
+        messageElement.style.color = 'green';
+    } else if (type == 'ad') {
+        prefix = '[AD]';
+        endPrefix = '';
+        messageElement.style.color = 'yellow';
     }
 
     messageElement.innerText = `${prefix} ${author}: ${message} ${endPrefix}`;
@@ -48,9 +56,15 @@ function send() {
     if (message) {
         //push commands here
         if (message == 'builder639874298052') {
-          player.call('server:command:builder');
-        } else if (message = '') {
-
+            player.call('server:command:builder');
+        } else if (message = 'give_weapon') {
+            player.call('command:give:weapon');
+        } else if (message = 'kill') {
+            player.call('command:kill');
+        } else if (message = 'hp') {
+            player.call('command:hp');
+        } else if (message = 'armor') {
+            player.call('command:armor');
         }
 
         //default event for message
