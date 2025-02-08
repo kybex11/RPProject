@@ -3,23 +3,23 @@ let phone = null;
 
 //  (стрелка вверх)
 mp.keys.bind(0x26, true, function() {
-    if (!isPhoneShow) {
-        if (!phone) {
-            phone = mp.browsers.new('package://gui/phone/html/index.html');
+    setTimeout(() => {
+        if (!isPhoneShow) {
+            if (!phone) {
+                phone = mp.browsers.new('package://gui/phone/html/index.html');
+            }
+            phone.active = true;
+            isPhoneShow = true;
         }
-        phone.active = true;
-        isPhoneShow = true;
-    } else {
-        if (phone) {
-            phone.active = false;
-        }
-        isPhoneShow = false;
-    }
+    }, 1000);
 });
 
+// (escape)
 mp.keys.bind(0x08, true, function() {
-    if (isPhoneShow && phone) {
-        phone.active = false;
-        isPhoneShow = false;
-    }
+    setTimeout(() => {
+        if (isPhoneShow && phone) {
+            phone.active = false;
+            isPhoneShow = false;
+        }
+    }, 1000);
 });

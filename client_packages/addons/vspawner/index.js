@@ -3,7 +3,7 @@ const Menu = NativeUI.Menu;
 const UIMenuItem = NativeUI.UIMenuItem;
 const Point = NativeUI.Point;
 
-const vehicles = require("vspawner/vehicleHashes");
+const vehicles = require("vehicleHashes");
 const maxCategory = 23;
 
 // register custom user input title
