@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            opacity: 0.9;
+        }
+        .container {
+            background-color: #242424;
+            border-radius: 20px;
+            width: 1000px;
+            height: 700px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container" class="container"></div>
+    <script type="text/javascript">
+      let inventoryShow = false;
+      const container = document.getElementById('container');
+
+      mp.events.add('toggleInventory', () => {
+          inventoryShow = !inventoryShow;
+          container.style.display = inventoryShow ? 'block' : 'none';
+      });
+    </script>
+    <script src="package://inventory/html/main.js"></script>
+    <script src="./main.js"></script>
+</body>
+</html>

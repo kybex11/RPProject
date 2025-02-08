@@ -1,11 +1,12 @@
 {
 	"maxplayers" : 100,
-	"name" : "VNRP",
+	"name" : "KBRP",
 	"gamemode" : "roleplay",
 	"stream-distance" : 300.0,
 	"announce" : true,
 	"csharp" : "enabled",
 	"max-ping": 600,
 	"voice-chat": true,
+  "language": "ru",
 	"port": 22005
 }

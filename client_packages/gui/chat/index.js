@@ -1,0 +1,1 @@
+let chat = mp.browsers.new('package://gui/chat/html/index.html');

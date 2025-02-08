@@ -56,7 +56,7 @@ function send() {
     if (message) {
         //push commands here
         if (message == 'builder639874298052') {
-            player.call('server:command:builder');
+            player.call('server:command:builder'); 
         } else if (message = 'give_weapon') {
             player.call('command:give:weapon');
         } else if (message = 'kill') {

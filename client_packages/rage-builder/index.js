@@ -113,7 +113,6 @@ function highlightEntity(selectedObject) {
     );
 }
 
-// Добавляем функции из movement.js
 let isEnabled = false;
 let isPaused = false;
 const localPlayer = mp.players.local;
@@ -437,7 +436,7 @@ mp.events.add("client:requestExit", () => {
     currentMode = MODE_FLY;
     mp.keys.unbind(CHANGE_EDITOR_MODE_BUTTON, true, changeMode);
     killIdleCameraTimer();
-    mp.game.graphics.notify('~g~Rage Builder ~w~closed');
+    mp.game.graphics.notify('~g~Map Editor ~w~closed');
     mp.events.callRemote('server:exitBuilder' );
 });
 

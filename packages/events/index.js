@@ -1,7 +1,0 @@
-let spawnPoints = require('../spawn_points.json').SpawnPoints;
-
-mp.events.add('playerDeath', (player) => {
-    let deathScreen = mp.browsers.new('');
-    //player.spawn(spawnPoints[Math.floor(Math.random() * spawnPoints.length)]);
-    player.health = 100;
-})
