@@ -1,5 +1,8 @@
 export interface User {
-
+  email: string;
+  password: string;
+  characters: Character;
+  ip: string;
 }
 
 export interface Fractions {

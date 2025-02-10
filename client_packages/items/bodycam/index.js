@@ -1,0 +1,2 @@
+function activate() {}
+function deactivate() {}
