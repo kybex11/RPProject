@@ -16,9 +16,7 @@ mp.keys.bind(0x49, true, function() {
     }
 });
 
-mp.keys.bind(0x08, true, function() {
-    if (isInventoryShow && inventory) {
+mp.keys.bind(0x08, isInventoryShow, function() {
         inventory.active = false;
         isInventoryShow = false;
-    }
 });

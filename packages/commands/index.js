@@ -30,6 +30,15 @@ mp.events.add('command:try', (player, text) => {
     }
 })
 
+mp.events.add('command:do', (player, text) => {
+    let output = `${player.name}: ${text}`;
+})
+
+mp.events.add('command:me', (player, text) => {
+    let output = `${player.name}: ${text}`;
+})
+
+
 mp.events.add("command:give:weapon", (player, fullText, weapon, ammo) => {
   player.giveWeapon(mp.joaat(weapon), parseInt(ammo) || 10000);
 });
