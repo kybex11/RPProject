@@ -6,13 +6,15 @@ mp.keys.bind(0x49, true, function() {
         if (!inventory) {
             inventory = mp.browsers.new('package://gui/inventory/html/index.html');
         }
-        inventory.active = true;
-        isInventoryShow = true;
+        if (!inventory == null) {
+          inventory.active = true;
+          isInventoryShow = true;
+        }
     } else {
         if (inventory) {
             inventory.active = false;
+            isInventoryShow = false;
         }
-        isInventoryShow = false;
     }
 });
 

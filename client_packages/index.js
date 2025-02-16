@@ -4,7 +4,7 @@ try {
     require('rage-builder');
     require('./discord');
     require('./imports');
-    
+
     require("MapEditor/MapEditor.js");
     require("MapEditor/object_data.js");
     require("MapEditor/Natives.js");

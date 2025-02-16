@@ -3,12 +3,11 @@ let active = false;
 
 mp.keys.bind(0x54, true, () => {
     active = true;
-    mp.gui.cursor.position(0, 0);
     mp.gui.cursor.show(true, true);
     mp.gui.cursor.visible = true;
 });
 
-mp.keys.bind(0x08, active, () => {
+mp.keys.bind(0x08, true, () => {
     active = false;
     mp.gui.cursor.show(true, false);
     mp.gui.cursor.visible = false;

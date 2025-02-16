@@ -1,24 +1,30 @@
 const message_box = document.getElementById('message_box');
 const input = document.getElementById('input');
 
-let nickname = player.name;
+//let nickname = player.name;
+let nickname = "PenisBaidena";
 
 function pushMessage(author, message, type) {
     let messageElement = document.createElement('div');
     let prefix = '';
     let endPrefix = '';
 
+    if (message.length > 30) {
+        messageElement.style.whiteSpace = 'pre-wrap';
+        messageElement.style.wordWrap = 'break-word';
+    }
+
 
     if (type == "message") {
         prefix = '';
         endPrefix = '';
-        messageElement.style.color = 'white';
+        messageElement.style.color = 'black';
     } else if (type == 'radio') {
         prefix = '[R]';
         endPrefix = '';
         messageElement.style.color = 'blue';
-    } else if (type == 'dep') {
-        prefix = '[D]';
+    } else if (type == 'system') {
+        prefix = '[KBRP]';
         endPrefix = '';
         messageElement.style.color = 'orange';
     } else if (type == 'announcement') {
@@ -28,7 +34,7 @@ function pushMessage(author, message, type) {
     } else if (type == 'nonrp') {
         prefix = '((';
         endPrefix = '))';
-        messageElement.style.color = 'white';
+        messageElement.style.color = 'black';
     } else if (type == 'news') {
         prefix = '[NEWS]';
         endPrefix = '';
@@ -53,26 +59,20 @@ function pushMessage(author, message, type) {
 function send() {
     console.log(input.value.trim());
     const message = input.value.trim();
-    if (message) {
+    if (message.length > 1) {
         //push commands here
-        if (message == 'builder639874298052') {
-            player.call('server:command:builder'); 
-        } else if (message = 'give_weapon') {
-            player.call('command:give:weapon');
-        } else if (message = 'kill') {
-            player.call('command:kill');
-        } else if (message = 'hp') {
-            player.call('command:hp');
-        } else if (message = 'armor') {
-            player.call('command:armor');
-        }
 
         //default event for message
-        pushMessage(nickname, message, 'message');
+        pushMessage(nickname, message, 'system');
         input.value = '';
     }
 }
 
+function toggleInputVisibility() {
+    const inputContainer = document.querySelector('.input-container');
+    inputContainer.style.display = inputContainer.style.display === 'none' ? 'flex' : 'none';
+}
+3 
 input.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         send();
@@ -80,4 +80,5 @@ input.addEventListener('keydown', (event) => {
     }
 })
 
-mp.events.add('pushMessage', (author, message, type) => { pushMessage(author, message, type)});
+//mp.events.add('pushMessage', (author, message, type) => { pushMessage(author, message, type)});
+//mp.events.add('toggleChatVisiblity', () => { toggleInputVisibility()});
