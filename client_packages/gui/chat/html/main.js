@@ -19,10 +19,6 @@ function pushMessage(author, message, type) {
         prefix = '';
         endPrefix = '';
         messageElement.style.color = 'black';
-    } else if (type == 'radio') {
-        prefix = '[R]';
-        endPrefix = '';
-        messageElement.style.color = 'blue';
     } else if (type == 'system') {
         prefix = '[KBRP]';
         endPrefix = '';
@@ -63,7 +59,7 @@ function send() {
         //push commands here
 
         //default event for message
-        pushMessage(nickname, message, 'system');
+        pushMessage(nickname, message, 'ad');
         input.value = '';
     }
 }

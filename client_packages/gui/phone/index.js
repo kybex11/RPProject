@@ -2,20 +2,23 @@ let isPhoneShow = false;
 let phone = null;
 
 //  (стрелка вверх)
-mp.keys.bind(0x26, true, function() {
+mp.keys.bind(0x26, true, function () {
     setTimeout(() => {
-        if (!isPhoneShow) {
-            if (!phone) {
-                phone = mp.browsers.new('package://gui/phone/html/index.html');
+        const chatOpen = mp.events.call('getChatActiveStatus');
+        if (chatOpen) {
+            if (!isPhoneShow) {
+                if (!phone) {
+                    phone = mp.browsers.new('package://gui/phone/html/index.html');
+                }
+                phone.active = true;
+                isPhoneShow = true;
             }
-            phone.active = true;
-            isPhoneShow = true;
         }
     }, 1000);
 });
 
 // (escape)
-mp.keys.bind(0x08, true, function() {
+mp.keys.bind(0x08, true, function () {
     setTimeout(() => {
         if (isPhoneShow && phone) {
             phone.active = false;

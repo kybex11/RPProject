@@ -12,3 +12,7 @@ mp.keys.bind(0x08, true, () => {
     mp.gui.cursor.show(true, false);
     mp.gui.cursor.visible = false;
 })
+
+mp.events.add('getChatActiveStatus', () => {
+    return active;
+})
