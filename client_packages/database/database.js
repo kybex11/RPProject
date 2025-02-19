@@ -1,6 +1,16 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017');
 
+const License
+    = mongoose.model('License', {
+        id: Number,
+        is: Boolean,
+        name: String,
+        givedDate: Number,
+        isExpired: Boolean,
+        expresDate: Number,
+    })
+
 const Character
     = mongoose.model('Character', {
         id: Number,
@@ -10,9 +20,20 @@ const Character
         armor: Number,
         money: String,
         fraction: Number,
+        deaths: Number,
+        kills: Number,
+        warns: Number,
+        bans: Number,
+        isBanned: Boolean,
+        banExpiresDate: Number,
+        warnExpiresDate: Number,
+        isWarned: Boolean,
         lvl: Number,
+        wanted: Number,
+        licenses: License,
         lastname: String,
-        adminlvl: Number
+        adminlvl: Number,
+        timesPlayed: Number,
     });
 
 const User
@@ -21,6 +42,7 @@ const User
         email: String,
         password: String,
         characters: Character,
+        ip: Number
     });
 
 const Fraction
