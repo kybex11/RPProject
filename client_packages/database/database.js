@@ -15,6 +15,7 @@ const Character
     = mongoose.model('Character', {
         id: Number,
         firstname: String,
+        refCode: String,
         gender: Number,
         health: Number,
         armor: Number,
