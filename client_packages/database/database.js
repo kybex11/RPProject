@@ -14,12 +14,18 @@ const License
 const Character
     = mongoose.model('Character', {
         id: Number,
+        phoneNumber: Number, 
+        socialCloudName: String, 
         firstname: String,
+        lastname: String,
+        work: String,
+        workRank: String,
         refCode: String,
         gender: Number,
         health: Number,
         armor: Number,
         money: String,
+        bank: Number,
         fraction: Number,
         deaths: Number,
         kills: Number,

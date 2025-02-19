@@ -1,14 +1,15 @@
 let isInventoryShow = false;
 let inventory = null;
 
-mp.keys.bind(0x49, true, function() {
+//arrow up
+mp.keys.bind(0x49, true, function () {
     if (!isInventoryShow) {
         if (!inventory) {
             inventory = mp.browsers.new('package://gui/inventory/html/index.html');
         }
         if (!inventory == null) {
-          inventory.active = true;
-          isInventoryShow = true;
+            inventory.active = true;
+            isInventoryShow = true;
         }
     } else {
         if (inventory) {
@@ -18,7 +19,10 @@ mp.keys.bind(0x49, true, function() {
     }
 });
 
-mp.keys.bind(0x08, isInventoryShow, function() {
+//espace
+mp.keys.bind(0x1B, isInventoryShow, function () {
+    if (inventory) {
         inventory.active = false;
         isInventoryShow = false;
+    }
 });
