@@ -1,1 +1,1 @@
-
+require('./anticheat');
