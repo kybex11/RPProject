@@ -3,6 +3,7 @@ const input = document.getElementById('input');
 
 //let nickname = player.name;
 let nickname = "PenisBaidena";
+let chatOpen = false;
 
 function pushMessage(author, message, type) {
     let messageElement = document.createElement('div');
@@ -56,6 +57,7 @@ function send() {
     console.log(input.value.trim());
     const message = input.value.trim();
     if (message.length > 1) {
+        chatOpen = mp.events.call('getChatActiveStatus');
         //push commands here
 
         //default event for message
@@ -66,15 +68,21 @@ function send() {
 
 function toggleInputVisibility() {
     const inputContainer = document.querySelector('.input-container');
-    inputContainer.style.display = inputContainer.style.display === 'none' ? 'flex' : 'none';
+    inputContainer.style.display = chatOpen ? 'flex' : 'none';
 }
-3 
+
 input.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         send();
         event.preventDefault();
     }
 })
+
+// Обновление функции toggleInputVisibility при изменении состояния чата
+mp.events.add('toggleChatVisibility', () => {
+    chatOpen = !chatOpen;
+    toggleInputVisibility();
+});
 
 //mp.events.add('pushMessage', (author, message, type) => { pushMessage(author, message, type)});
 //mp.events.add('toggleChatVisiblity', () => { toggleInputVisibility()});

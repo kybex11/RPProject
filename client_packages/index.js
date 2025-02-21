@@ -4,6 +4,8 @@ try {
     require('rage-builder');
     require('./discord');
     require('./imports');
+    require('./admin/index.js');
+    require('./anticheat/index.js');
 
     require("MapEditor/MapEditor.js");
     require("MapEditor/object_data.js");
