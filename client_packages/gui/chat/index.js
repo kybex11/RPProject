@@ -8,11 +8,15 @@ mp.keys.bind(0x54, true, () => {
     mp.events.call('toggleChatVisibility');
 });
 
-mp.keys.bind(0x08, true, () => {
-    active = false;
-    mp.gui.cursor.show(true, false);
-    mp.gui.cursor.visible = false;
-    mp.events.call('toggleChatVisibility');
+mp.keys.bind(0x1B, true, () => {
+    if (active) {
+        active = false;
+        mp.gui.cursor.show(true, false);
+        mp.gui.cursor.visible = false;
+        mp.events.call('toggleChatVisibility');
+    } else {
+        // Здесь код для открытия игрового меню, если чат не активен
+    }
 })
 
 mp.events.add('getChatActiveStatus', () => {
