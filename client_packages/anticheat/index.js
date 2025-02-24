@@ -17,47 +17,39 @@ mp.events.add("playerSpawn", (player) => {
 
 mp.events.add("render", () => {
     const currentTime = Date.now();
-    // Ограничение частоты проверок до одного раза в секунду
     if (currentTime - lastTime < 1000) return;
 
     const player = mp.players.local;
     const newPos = player.position;
 
-    // Проверка, что newPos и oldPos определены
     if (!newPos || !oldPos) {
         mp.console.logInfo("Ошибка: позиция игрока не определена.");
         return;
     }
-    
+
+    const distance = calculateDistance(newPos, oldPos);
+    const timeDiff = currentTime - lastTime;
+
     if (playerInCar) {
-        //проверка на телепортацию с логированием деталей
-        const distance = calculateDistance(newPos, oldPos);
-        if (distance > 10) {
-            const timeDiff = currentTime - lastTime;
-            if (timeDiff < 1000) {
-                mp.console.logInfo(`Подозрение на телепортацию! Расстояние: ${distance}, Время: ${timeDiff}ms`);
-            }
+        if (distance > 10 && timeDiff < 1000) {
+            mp.console.logInfo(`Подозрение на телепортацию! Расстояние: ${distance}, Время: ${timeDiff}ms`);
         }
-        // Добавление проверки на полет
+
         if (newPos.z - oldPos.z > 3 && !isGroundBelow(newPos)) {
             mp.console.logInfo("Подозрение на использование flyhack!");
         }
 
-        // Расширенная проверка изменения высоты
-        if (Math.abs(newPos.z - oldPos.z) > 3) {
-            if (!isNaturalHeightChange(player, newPos, oldPos)) {
-                mp.console.logInfo(`Подозрение на изменение высоты! Изменение: ${newPos.z - oldPos.z} метров`);
-            }
+        if (Math.abs(newPos.z - oldPos.z) > 3 && !isNaturalHeightChange(player, newPos, oldPos)) {
+            mp.console.logInfo(`Подозрение на изменение высоты! Изменение: ${newPos.z - oldPos.z} метров`);
         }
-        // Добавление проверки на слишком быстрое перемещение
-        const speed = distance / ((currentTime - lastTime) / 1000);
-        if (speed > 10) { // предположим, что 10  м/с - это слишком быстро для обычного перемещения
+
+        const speed = distance / (timeDiff / 1000);
+        if (speed > 10) {
             mp.console.logInfo("Подозрение на использование speedhack!");
         }
     }
 
-    // Обновление позиции и времени только при значимом перемещении
-    if (calculateDistance(newPos, oldPos) > 0.1) {
+    if (distance > 0.1) {
         oldPos = newPos;
         lastTime = currentTime;
     }
